@@ -5,7 +5,8 @@ def root_routes(app):
 
     @app.route("/api/hello", methods = ['GET'])
     def hello():
-        client_ip = request.headers.get('X-Forwarded-For', request.remote_addr) 
+        # client_ip = request.headers.get('X-Forwarded-For', request.remote_addr) 
+        client_ip = request.remote_addr
         visitor_name = request.args.get('visitor_name')
         
         IP_INFO_API_ENDPOINT = f'http://ip-api.com/json/{client_ip}'
